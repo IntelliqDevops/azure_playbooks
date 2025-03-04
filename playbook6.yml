@@ -1,0 +1,16 @@
+---
+- name: Install docker using apt 
+  hosts: all
+  tasks:
+    - name: Install docker
+      apt:
+        name: docker-ce
+        state: present
+        update_cache: yes
+    - name: Install containerd
+      apt:
+        name: containerd.io
+        state: present
+
+          
+...
