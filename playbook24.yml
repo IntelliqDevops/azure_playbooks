@@ -1,0 +1,17 @@
+---
+- name: Delete user based on a specific uid
+  hosts: all
+  tasks:
+    - name: Capture user info
+      user:
+        name: Robert 
+      register: a
+    - name: Display output of the above module
+      debug: 
+        var: a
+    - name: Delete user based on uid
+      user:
+        name: Robert
+        state: absent
+      when: a.uid == 8989
+
